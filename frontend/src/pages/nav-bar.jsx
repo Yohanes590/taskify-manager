@@ -63,7 +63,8 @@ const TopNavBar = () => {
                             <input type="email" id="user-email-input" placeholder='Email' className='w-[70%] h-[40px] outline-0 border-lime-400 border-2 pl-[20px] rounded-[6px] mt-[10px]' /><br />
                             <input type="password" placeholder='Change password' className='w-[70%] h-[40px] outline-0 border-lime-400 border-2 pl-[20px] rounded-[6px] mt-[10px]' /><br />
                             <button className='mt-[10px] w-[48%] bg-green-700 h-[40px] cursor-pointer rounded-[7px]'>Save Changes</button>
-                            <button onClick={OpenEditor} className='mt-[10px] w-[20%] bg-red-500 h-[40px] cursor-pointer rounded-[7px] ml-[10px]'>Cancel</button>
+                            <button onClick={OpenEditor} className='mt-[10px] w-[20%] bg-orange-500 h-[40px] cursor-pointer rounded-[7px] ml-[10px]'>Cancel</button>
+                            <br /> <button className="w-[70%] mt-[20px] h-[40px] rounded-[10px] cursor-pointer bg-red-500">Delete Account</button>
                         </div>
 
                     </div>

@@ -82,11 +82,67 @@ ApiRoute.post("/login-account" ,async (req,res)=>{
 })
 
 
-ApiRoute.post("/add-task",(req,res)=>{
+ApiRoute.post("/add-task",async(req,res)=>{
     try{
-        res.json({message:"connected"})
+        const gettingCookie = req.body.user_token
+        const UserTask = {
+            task_title: req.body.task_title,
+            taskDiscription: req.body.taskDiscription,
+            taskDate: req.body.taskDate,
+            taskPrio: req.body.taskPrio,
+            taskStatus: req.body.taskStatus
+        }
+        const decodeToken =  jwt.decode(gettingCookie)
+       await userInformation.findOneAndUpdate(
+            {user_email:decodeToken.userInfo.user_email},
+            {$push:{user_task:UserTask}},
+            {new:true}
+        )
+        res.json({message:200})
     }catch (error){
+        res.json({message:500})
+    }
+})
+
+
+ApiRoute.post("/task-showing" , async(req,res)=>{
+    try {
+        const userAuthenicator = req.body.user_auth;
+        const decodeCookie = jwt.decode(userAuthenicator);
+        const gettingUserTask = await userInformation.findOne({user_email:decodeCookie.userInfo.user_email})
+        res.json(gettingUserTask.user_task)
+    } catch (error) {
+        res.json({message:500})
+    }
+})
+
+ApiRoute.post("/deleteing-task" , async (req,res)=>{
+    try {
+        const userCookieAuth =req.body.auth;
+        const decodeEmail = jwt.decode(userCookieAuth)
+          await userInformation.findOneAndUpdate(
+            {user_email:decodeEmail.userInfo.user_email},
+            {$pull:{user_task:{task_title:req.body.task_title}}},
+            {new:true}
+        )
+        res.json({message:200})
+    } catch (error) {
         res.json({message:error.message})
+    }
+})
+
+ApiRoute.post("/updating-user-task", async (req,res)=>{
+    try {
+        const userJWT = req.body.auth_token;
+        const decodeJWT = jwt.decode(userJWT)
+        await userInformation.findOneAndUpdate(
+            {user_email:decodeJWT.userInfo.user_email , "user_task.task_title":req.body.task_title_id},
+            {$set:{"user_task.$":req.body.updatedTask}},
+            {new:true}
+        )
+        res.json({message:200})
+    } catch (error) {
+        res.json({message:500})
     }
 })
 
