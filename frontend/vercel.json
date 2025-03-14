@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/task",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/anliytics",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/add-task",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/completed-task",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/incompleted-task",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/sign-up",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/login",
+      "dest": "/index.html"
+    }
+  ]
+}
