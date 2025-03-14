@@ -34,8 +34,8 @@
       "dest": "/index.html"
     },
     {
-      "src": "/login",
-      "dest": "/complated-task"
+      "src": "/complated-task",
+      "dest": "/index.html"
     }
     
   ]
