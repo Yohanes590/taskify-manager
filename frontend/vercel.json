@@ -36,6 +36,10 @@
     {
       "src": "/complated-task",
       "dest": "/index.html"
+    },
+    {
+      "src": "/incomplated-task",
+      "dest": "/index.html"
     }
     
   ]
