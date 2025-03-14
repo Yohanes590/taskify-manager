@@ -32,6 +32,11 @@
     {
       "src": "/login",
       "dest": "/index.html"
+    },
+    {
+      "src": "/login",
+      "dest": "/complated-task"
     }
+    
   ]
 }
