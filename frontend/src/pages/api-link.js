@@ -1,2 +1,2 @@
-const ApiLink = "http://127.0.0.1:3000/"
+const ApiLink = "https://taskify-manager-api-congi.onrender.com"
 export{ ApiLink }
