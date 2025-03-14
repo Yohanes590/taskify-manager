@@ -9,7 +9,7 @@ const userInformation = require("./models/user.model")
 ApiRoute.use(express.urlencoded({extended:false}))
 ApiRoute.use(express.json())
 ApiRoute.use(cors({
-    origin:"http://localhost:5173"
+    origin:"https://taski-manager.vercel.app"
 }))
 
 ApiRoute.get("/", (req,res)=>{
