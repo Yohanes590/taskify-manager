@@ -27,6 +27,7 @@ function TaskShower() {
         ShowTaskAPi()
     }, [])
 
+
     const OpenEditor = async (taskProp) => {
         if (openEditor == true) {
             setEditor(false)
@@ -71,7 +72,6 @@ function TaskShower() {
             })
         })
         const changeIntoJson = await UpdateDatabase.json()
-        console.log(changeIntoJson)
         if (changeIntoJson.message == 200) {
             toast.success("task updated!", { position: "top-center" })
             setTimeout(() => {

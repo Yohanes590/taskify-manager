@@ -13,27 +13,27 @@ function Login() {
         } else if (password.length < 8) {
             toast.warning("Invaild Passowrd", { position: "top-center" })
         } else {
-            const askRequest = await fetch(ApiLink + `login-account`, {
+            const sendingInfo = await fetch(ApiLink + 'login-account', {
                 method: "post",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    userEmail: email,
-                    userPass: password
+                    user_email: email,
+                    user_pass: password,
                 })
             })
-            const changeResponce = await askRequest.json()
-            if (changeResponce.message == 200) {
-                toast.success("Login success", { position: "top-center" })
-                Cookies.set("auth_token", changeResponce.token)
+            const changeINFO = await sendingInfo.json()
+            if (changeINFO.message == 200) {
+                Cookies.set("auth_token", changeINFO.auth_token)
+                toast.success("login success", { position: 'top-center' })
                 setTimeout(() => {
                     window.location.href = "/task"
                 }, 1000);
-            } else if (changeResponce.message == 400) {
-                toast.warning("Account not found", { position: "top-center" })
-            } else if (changeResponce.message == 500) {
-                toast.error("Internal Server Error", { position: "top-center" })
+            } else if (changeINFO.message == 400) {
+                toast.warning("account not found", { position: 'top-center' })
+            } else {
+                toast.error("internal server error", { position: 'top-center' })
             }
         }
     }

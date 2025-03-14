@@ -12,6 +12,9 @@ import Login from './pages/login'
 import ForoFor from './pages/404'
 import LandingPage from './pages/landing'
 function App() {
+  setTimeout(() => {
+    console.clear();
+  }, 100);
   return (<>
     <Routes>
 
